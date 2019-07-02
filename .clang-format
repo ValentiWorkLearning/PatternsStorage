@@ -1,0 +1,31 @@
+﻿---
+BasedOnStyle: Chromium
+AlignTrailingComments: 'false'
+AllowAllParametersOfDeclarationOnNextLine: 'false'
+AllowShortIfStatementsOnASingleLine: 'false'
+AllowShortLoopsOnASingleLine: 'false'
+AlwaysBreakBeforeMultilineStrings: 'true'
+AlignAfterOpenBracket: AlwaysBreak
+AlwaysBreakTemplateDeclarations: 'true'
+BreakBeforeBraces: Allman
+BinPackParameters: 'false'
+BinPackArguments: 'false'
+ColumnLimit: '80'
+ContinuationIndentWidth: 4
+ExperimentalAutoDetectBinPacking: 'false'
+Language: Cpp
+NamespaceIndentation: Inner
+PenaltyReturnTypeOnItsOwnLine: '1'
+PointerAlignment: Left
+SpaceBeforeAssignmentOperators: 'true'
+SpaceInEmptyParentheses: 'false'
+SpacesInAngles: 'false'
+SpacesInCStyleCastParentheses: 'true'
+SpacesInContainerLiterals: 'true'
+SpacesInParentheses: 'true'
+IndentWidth: 4
+Standard: Cpp11
+TabWidth: 4
+UseTab: Never
+
+...
