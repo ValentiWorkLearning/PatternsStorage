@@ -4,52 +4,44 @@
 
 namespace RenderTargets
 {
-    class IRenderTarget;
-    class OpenGlRenderTarget;
-    class DirectXRenderTarget;
-}
+class IRenderTarget;
+class OpenGlRenderTarget;
+class DirectXRenderTarget;
+}  // namespace RenderTargets
 
 namespace Creators
 {
-
 class IRenderContextCreator
 {
-
-public:
-
+   public:
     using Ptr = std::unique_ptr<IRenderContextCreator>;
 
-    virtual std::unique_ptr<RenderTargets::IRenderTarget> createRenderContext() = 0;
+    [[nodiscard]] virtual std::unique_ptr<RenderTargets::IRenderTarget>
+    createRenderContext() = 0;
 
     virtual ~IRenderContextCreator() = default;
 };
 
-class OpenGlCreator
-    :	public IRenderContextCreator
+class OpenGlCreator : public IRenderContextCreator
 {
-
-public:
-
-    std::unique_ptr<RenderTargets::IRenderTarget> createRenderContext() override;
+   public:
+    std::unique_ptr<RenderTargets::IRenderTarget>
+    createRenderContext() override;
 
     ~OpenGlCreator() override = default;
 };
 
-
-class DirectXCreator
-    :	public IRenderContextCreator
+class DirectXCreator : public IRenderContextCreator
 {
-
-public:
-
+   public:
     ~DirectXCreator() override = default;
 
-    std::unique_ptr<RenderTargets::IRenderTarget> createRenderContext() override;
+    std::unique_ptr<RenderTargets::IRenderTarget>
+    createRenderContext() override;
 };
 
+[[nodiscard]] IRenderContextCreator::Ptr createOpenGlCreator();
 
-IRenderContextCreator::Ptr createOpenGlCreator();
+[[nodiscard]] IRenderContextCreator::Ptr createDirectXCreator();
 
-IRenderContextCreator::Ptr createDirectXCreator();
-
-};
+};  // namespace Creators

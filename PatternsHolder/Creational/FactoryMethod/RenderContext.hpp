@@ -3,45 +3,35 @@
 
 namespace RenderTargets
 {
-
 class IRenderTarget
 {
-
-public:
-
+   public:
     using Ptr = std::unique_ptr<IRenderTarget>;
 
-	virtual void renderContext() = 0;
+    virtual void renderContext() = 0;
 
-	virtual void forceRedraw() = 0;
+    virtual void forceRedraw() = 0;
 
-	virtual ~IRenderTarget() = default;
+    virtual ~IRenderTarget() = default;
 };
 
-class OpenGlRenderTarget
-	:	public IRenderTarget
+class OpenGlRenderTarget : public IRenderTarget
 {
+   public:
+    void renderContext() override;
 
-public:
-
-	void renderContext() override;
-
-	void forceRedraw() override;
+    void forceRedraw() override;
 
     ~OpenGlRenderTarget() override = default;
 };
 
-class DirectXRenderTarget
-	:	public IRenderTarget
+class DirectXRenderTarget : public IRenderTarget
 {
+   public:
+    void renderContext() override;
 
-public:
+    void forceRedraw() override;
 
-	void renderContext() override;
-
-	void forceRedraw() override;
-
-    ~DirectXRenderTarget()override = default;
-
+    ~DirectXRenderTarget() override = default;
 };
-};
+};  // namespace RenderTargets

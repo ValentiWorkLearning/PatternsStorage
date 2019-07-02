@@ -9,10 +9,18 @@ project ("PatternsHolder")
 
 # Include sub-projects.
 add_subdirectory ("PatternsHolder/Creational/FactoryMethod")
+add_subdirectory ("PatternsHolder/Behavioral/SequenceOfResponsibility")
 
 set (TARGET_NAME PatternsHolder)
 
 add_executable( ${TARGET_NAME} )
+
+#Enable support of C++17
+if( MSVC )
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17" )
+else()
+    target_compile_features(${TARGET_NAME} cxx_std_17)
+endif()
 
 target_sources( ${TARGET_NAME}
 	PRIVATE
@@ -20,14 +28,15 @@ target_sources( ${TARGET_NAME}
 )
 
 target_include_directories(
-        ${TARGET_NAME}
-        PUBLIC
-        ${Boost_INCLUDE_DIRS}
+	${TARGET_NAME}
+	PUBLIC
+	${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(
 	${TARGET_NAME}
 	FactoryMethod
-        ${Boost_LIBRARIES}
+	SequenceOfResponsibility
+	${Boost_LIBRARIES}
 )
 

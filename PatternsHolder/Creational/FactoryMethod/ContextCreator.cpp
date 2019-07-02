@@ -1,9 +1,9 @@
-#include "RenderContext.hpp"
 #include "ContextCreator.hpp"
+
+#include "RenderContext.hpp"
 
 namespace Creators
 {
-
 std::unique_ptr<RenderTargets::IRenderTarget>
 OpenGlCreator::createRenderContext()
 {
@@ -25,4 +25,4 @@ IRenderContextCreator::Ptr createDirectXCreator()
     return std::make_unique<DirectXCreator>();
 }
 
-}
+}  // namespace Creators

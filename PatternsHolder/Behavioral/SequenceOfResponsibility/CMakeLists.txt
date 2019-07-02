@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.8)
 
-set (TARGET_NAME FactoryMethod)
+set (TARGET_NAME SequenceOfResponsibility)
 
 add_library( ${TARGET_NAME} STATIC )
 
@@ -14,8 +14,6 @@ endif()
 target_sources(
 	${TARGET_NAME}
         PRIVATE
-	${CMAKE_CURRENT_LIST_DIR}/RenderContext.hpp
-	${CMAKE_CURRENT_LIST_DIR}/RenderContext.cpp
-	${CMAKE_CURRENT_LIST_DIR}/ContextCreator.hpp
-	${CMAKE_CURRENT_LIST_DIR}/ContextCreator.cpp
+	${CMAKE_CURRENT_LIST_DIR}/CommandContextParser.hpp
+	${CMAKE_CURRENT_LIST_DIR}/CommandContextParser.cpp
 )
