@@ -10,7 +10,7 @@ project ("PatternsHolder")
 # Include sub-projects.
 add_subdirectory ("PatternsHolder/Creational/FactoryMethod")
 add_subdirectory ("PatternsHolder/Behavioral/SequenceOfResponsibility")
-#add_subdirectory ("PatternsHolder/Behavioral/Visitor")
+add_subdirectory ("PatternsHolder/Behavioral/Visitor")
 
 set (TARGET_NAME PatternsHolder)
 
@@ -38,7 +38,7 @@ target_link_libraries(
 	${TARGET_NAME}
 	FactoryMethod
 	SequenceOfResponsibility
-#	Visitor
+	Visitor
 	${Boost_LIBRARIES}
 )
 

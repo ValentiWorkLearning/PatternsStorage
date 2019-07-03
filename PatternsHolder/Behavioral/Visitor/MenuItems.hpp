@@ -1,9 +1,17 @@
 #pragma once
 
 #include <string>
+#include <memory>
+#include <vector>
+
+namespace Visitor
+{
+class NodeVisitor;
+}
 
 namespace Visitor::Filesystem::Exceptions
 {
+
 	class BadExtensionCall : public std::exception
 	{
        public:
@@ -20,7 +28,10 @@ namespace Visitor::Filesystem::Exceptions
 
 		~BadExtensionCall() = default;
 
-        char const* what() override { return m_warnMessage.c_str(); }
+        char const* what()
+		{
+			return m_warnMessage.c_str();
+		}
 
 		private:
         std::string m_warnMessage;
@@ -29,35 +40,51 @@ namespace Visitor::Filesystem::Exceptions
 
 namespace Visitor::Filesystem::Nodes
 {
+
+class NodesVisitor;
+
 class IFilesystemNode
 {
    public:
-    virtual size_t getEntrySize() = 0;
 
-    virtual std::string getFileExtension() = 0;
+	using Ptr = std::shared_ptr<IFilesystemNode>;
+
+	virtual void accept( Visitor::NodeVisitor& _visitor ) = 0;
+
+    virtual size_t getEntrySize() const = 0;
+
+    virtual std::string getFileExtension() const = 0;
 
     virtual ~IFilesystemNode() = default;
+
 };
 
 class DirectoryNode : public IFilesystemNode
 {
    public:
-    size_t getEntrySize() override;
 
-    std::string getFileExtension() override;
+    using Ptr = std::shared_ptr<DirectoryNode>;
+
+    size_t getEntrySize() const override;
+
+    std::string getFileExtension() const override;
+
+	void addEntry( const std::shared_ptr<IFilesystemNode>& _node );
+
+	void accept( Visitor::NodeVisitor& _visitor ) override;
 
     ~DirectoryNode() override = default;
 
    private:
-    std::weak_ptr<IFilesystemNode>
+    std::vector< std::weak_ptr< IFilesystemNode > > m_entries;
 };
 
 class IFileNode : public IFilesystemNode
 {
    public:
-    size_t getEntrySize() override;
+    size_t getEntrySize() const override;
 
-    ~IFileNode() override = default();
+    ~IFileNode() override = default;
 
    private:
     size_t m_fileSize;
@@ -66,7 +93,9 @@ class IFileNode : public IFilesystemNode
 class CppFileNode : public IFileNode
 {
    public:
-    std::string getFileExtension() override;
+    std::string getFileExtension() const override;
+
+	void accept( Visitor::NodeVisitor& _visitor ) override;
 
     ~CppFileNode() override = default;
 };
@@ -74,7 +103,9 @@ class CppFileNode : public IFileNode
 class PdfFileNode : public IFileNode
 {
    public:
-    std::string getFileExtension() override;
+    std::string getFileExtension() const override;
+
+	void accept( Visitor::NodeVisitor& _visitor ) override;
 
     ~PdfFileNode() override = default;
 };
@@ -82,8 +113,22 @@ class PdfFileNode : public IFileNode
 class BatFileNode : public IFileNode
 {
    public:
-    std::string getFileExtension() override;
+    std::string getFileExtension() const override;
+
+	void accept( Visitor::NodeVisitor& _visitor ) override;
 
     ~BatFileNode() override = default;
 };
+
+enum class FileExtension
+{
+		Cpp
+	,	Pdf
+	,	Bat
+};
+
+DirectoryNode::Ptr createDirectory();
+
+IFilesystemNode::Ptr createFile( FileExtension _fileExtension );
+
 };  // namespace Visitor::FilesystemNodes
