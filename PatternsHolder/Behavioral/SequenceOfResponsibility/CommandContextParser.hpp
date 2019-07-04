@@ -47,7 +47,7 @@ class ColorParser : public CompositeContentParser
     void parseContext( ContextType _jsonValueType ) override;
 };
 
-class MarginsParser: public CompositeContentParser
+class MarginsParser : public CompositeContentParser
 {
    public:
     void parseContext( ContextType _jsonValueType ) override;

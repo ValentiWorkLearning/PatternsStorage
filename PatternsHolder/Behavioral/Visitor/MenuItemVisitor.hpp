@@ -4,7 +4,6 @@
 
 namespace Visitor::Filesystem::Nodes
 {
-
 class DirectoryNode;
 
 class CppFileNode;
@@ -13,12 +12,10 @@ class PdfFileNode;
 
 class BatFileNode;
 
-}
-
+}  // namespace Visitor::Filesystem::Nodes
 
 namespace Visitor
 {
-
 class NodeVisitor
 {
    public:
@@ -30,15 +27,12 @@ class NodeVisitor
 
     virtual void visit( const Filesystem::Nodes::BatFileNode& _fileNode ) = 0;
 
-    virtual ~NodeVisitor()= default;
+    virtual ~NodeVisitor() = default;
 };
 
-class PaintVisitor
-	:	public NodeVisitor
+class PaintVisitor : public NodeVisitor
 {
-
-  public:
-
+   public:
     void visit( const Filesystem::Nodes::DirectoryNode& _dirNode );
 
     void visit( const Filesystem::Nodes::CppFileNode& _fileNode );
@@ -50,9 +44,6 @@ class PaintVisitor
     ~PaintVisitor() override = default;
 };
 
-std::unique_ptr<NodeVisitor> createPaintNodeVisitor()
-{
-    return std::make_unique<PaintVisitor>();
-}
+std::unique_ptr<NodeVisitor> createPaintNodeVisitor();
 
 };  // namespace Visitor

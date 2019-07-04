@@ -5,11 +5,14 @@
 #include <vector>
 
 #include "Behavioral/SequenceOfResponsibility/CommandContextParser.hpp"
+
 #include "Behavioral/Visitor/MenuItemVisitor.hpp"
 #include "Behavioral/Visitor/MenuItems.hpp"
+#include "Behavioral/Visitor/Literals.hpp"
 
 #include "Creational/FactoryMethod/ContextCreator.hpp"
 #include "Creational/FactoryMethod/RenderContext.hpp"
+
 
 int main()
 {
@@ -45,20 +48,22 @@ int main()
 
     // Behavioral/Visitor
     {
-		namespace FileNode = Visitor::Filesystem::Nodes;
+        namespace FileNode = Visitor::Filesystem::Nodes;
 
         auto visitor = Visitor::createPaintNodeVisitor();
 
-		auto rootDir = FileNode::createDirectory();
+        auto rootDir = FileNode::createDirectory();
 
         auto workDir = FileNode::createDirectory();
 
-        auto pdfFile = FileNode::createFile( FileNode::FileExtension::Pdf );
-        auto batFile = FileNode::createFile( FileNode::FileExtension::Bat );
-        auto cppSource = FileNode::createFile( FileNode::FileExtension::Cpp );
+		using namespace Visitor::Filesystem::Literals;
 
-        rootDir->addEntry( workDir );
+        auto pdfFile = FileNode::createFile( FileNode::FileExtension::Pdf, 1000_bytes );
+        auto batFile = FileNode::createFile( FileNode::FileExtension::Bat, 10_kb);
+        auto cppSource = FileNode::createFile( FileNode::FileExtension::Cpp, 100_mb );
+
         rootDir->addEntry( pdfFile );
+        rootDir->addEntry( workDir );
 
         workDir->addEntry( batFile );
         workDir->addEntry( cppSource );

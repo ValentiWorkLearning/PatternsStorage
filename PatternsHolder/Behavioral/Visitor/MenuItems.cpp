@@ -1,28 +1,25 @@
 #include "MenuItems.hpp"
-#include "MenuItems.hpp"
+
+#include "MenuItemVisitor.hpp"
 #include "MenuItems.hpp"
 #include "Messages.hpp"
-#include "MenuItemVisitor.hpp"
 
 namespace Visitor::Filesystem::Nodes
 {
-
 size_t DirectoryNode::getEntrySize() const
 {
     size_t directorySize{};
 
-    for ( auto&& node: m_entries )
+    for ( auto&& pNode : m_entries )
     {
-        if ( auto pNode = node.lock() )
-        {
-            directorySize += pNode->getEntrySize();
-        }
+        directorySize += pNode->getEntrySize();
     }
+    return directorySize;
 }
 
 std::string DirectoryNode::getFileExtension() const
 {
-    throw Filesystem::Messages::BadExtensionCall( Visitor::Messages::BadExtensionCall );
+    throw Exceptions::BadExtensionCall( Messages::BadExtensionCall );
 
     return {};
 }
@@ -36,19 +33,20 @@ void DirectoryNode::accept( Visitor::NodeVisitor& _visitor )
 {
     _visitor.visit( *this );
 
-    for ( std::weak_ptr<IFilesystemNode> node : m_entries )
+    for ( auto&& pNode : m_entries )
     {
-        if ( const auto& pNode = node.lock() )
-        {
-            _visitor.visit( *pNode );
-        }
+        pNode->accept( _visitor );
     }
 }
+
+IFileNode::IFileNode( size_t _fileSize ) : m_fileSize{_fileSize} {}
 
 size_t IFileNode::getEntrySize() const
 {
     return m_fileSize;
 }
+
+CppFileNode::CppFileNode( size_t _fileSize ) : IFileNode{_fileSize} {}
 
 std::string CppFileNode::getFileExtension() const
 {
@@ -60,6 +58,8 @@ void CppFileNode::accept( Visitor::NodeVisitor& _visitor )
     _visitor.visit( *this );
 }
 
+PdfFileNode::PdfFileNode( size_t _fileSize ) : IFileNode{_fileSize} {}
+
 std::string PdfFileNode::getFileExtension() const
 {
     return "pdf";
@@ -69,6 +69,8 @@ void PdfFileNode::accept( Visitor::NodeVisitor& _visitor )
 {
     _visitor.visit( *this );
 }
+
+BatFileNode::BatFileNode( size_t _fileSize ) : IFileNode{_fileSize} {}
 
 std::string BatFileNode::getFileExtension() const
 {
@@ -85,18 +87,19 @@ DirectoryNode::Ptr createDirectory()
     return std::make_shared<DirectoryNode>();
 }
 
-IFilesystemNode::Ptr createFile( FileExtension _fileExtension )
+IFilesystemNode::Ptr
+createFile( FileExtension _fileExtension, size_t _fileSize )
 {
     switch ( _fileExtension )
     {
         case FileExtension::Cpp:
-            return std::make_shared<CppFileNode>();
-        break;
+            return std::make_shared<CppFileNode>( _fileSize );
+            break;
         case FileExtension::Pdf:
-            return std::make_shared<PdfFileNode>();
+            return std::make_shared<PdfFileNode>( _fileSize );
             break;
         case FileExtension::Bat:
-            return std::make_shared<BatFileNode>();
+            return std::make_shared<BatFileNode>( _fileSize );
             break;
         default:
             break;
