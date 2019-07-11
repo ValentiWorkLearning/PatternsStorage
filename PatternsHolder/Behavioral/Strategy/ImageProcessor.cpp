@@ -11,6 +11,6 @@ void ImageProcessor::setImageInterpolationMode(
 }
 std::unique_ptr<Image> ImageProcessor::processImage()
 {
-    return std::unique_ptr<Image>();
+    return std::unique_ptr<Image>( );
 }
 };  // namespace Strategy
