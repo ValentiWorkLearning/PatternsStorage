@@ -11,16 +11,14 @@ class IImageInterpolator;
 
 class ImageProcessor
 {
-
-public:
-
-	void setImageInterpolationMode(
+   public:
+    void setImageInterpolationMode(
         std::unique_ptr<IImageInterpolator>&& _imageProcessor );
 
-    std::unique_ptr<Image> processImage();
+    std::unique_ptr<Image> processImage( std::unique_ptr<Image>&& _image );
 
-private:
-    std::unique_ptr<IImageInterpolator> m_imageProcessor;
-}
+   private:
+    std::unique_ptr<IImageInterpolator> m_imageInterpolator;
+};
 
 };  // namespace Strategy

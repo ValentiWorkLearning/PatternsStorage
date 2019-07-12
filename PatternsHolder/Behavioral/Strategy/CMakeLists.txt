@@ -16,5 +16,9 @@ target_sources(
         PRIVATE
 	${CMAKE_CURRENT_LIST_DIR}/ImageInterpolator.hpp
 	${CMAKE_CURRENT_LIST_DIR}/ImageInterpolator.cpp
+	${CMAKE_CURRENT_LIST_DIR}/ImageLoader.hpp
+	${CMAKE_CURRENT_LIST_DIR}/ImageLoaderCreator.hpp
+	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.hpp
+	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.cpp
 	${CMAKE_CURRENT_LIST_DIR}/Image.hpp
 )

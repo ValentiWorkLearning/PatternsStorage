@@ -23,7 +23,7 @@ class Image
     std::filesystem::path m_imageSource;
 };
 
-Image::Image( const std::filesystem::path& _imageSource )
+inline Image::Image( const std::filesystem::path& _imageSource )
 	:	m_imageSource{ _imageSource }
 {
 

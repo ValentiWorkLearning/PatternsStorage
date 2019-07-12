@@ -24,4 +24,24 @@ void BicubicInterpolation::interpolate( Image& _toProcess )
               << std::endl;
     _toProcess.setDensity( _toProcess.getDensity() * 2 );
 }
+
+std::unique_ptr<IImageInterpolator>
+getInterpolationAlgorithm( InterpolationMode _algorithm )
+{
+    switch ( _algorithm )
+    {
+        case Strategy::InterpolationMode::NearestNeighbour:
+            return std::make_unique<NearestNeighbour>();
+            break;
+        case Strategy::InterpolationMode::Linear:
+            return std::make_unique<LinearInterpolation>();
+            break;
+        case Strategy::InterpolationMode::Bicubic:
+            return std::make_unique<BicubicInterpolation>();
+            break;
+        default:
+            throw std::logic_error( ExceptionMessage );
+		break;
+    }
+}
 };  // namespace Strategy

@@ -39,17 +39,23 @@ class RangeParser : public CompositeContentParser
 {
    public:
     void parseContext( ContextType _jsonValueType ) override;
+
+	~RangeParser() override = default;
 };
 
 class ColorParser : public CompositeContentParser
 {
    public:
     void parseContext( ContextType _jsonValueType ) override;
+
+	~ColorParser() override = default;
 };
 
 class MarginsParser : public CompositeContentParser
 {
    public:
     void parseContext( ContextType _jsonValueType ) override;
+
+	~MarginsParser() override = default;
 };
 };  // namespace SequenceOfResponsibility
