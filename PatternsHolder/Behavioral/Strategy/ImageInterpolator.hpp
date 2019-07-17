@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 
 enum class InterpolationMode

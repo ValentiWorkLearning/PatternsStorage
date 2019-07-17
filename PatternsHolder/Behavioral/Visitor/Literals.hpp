@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Visitor::Filesystem::Literals
+namespace Behavioral::Visitor::Filesystem::Literals
 {
 size_t operator "" _bytes( size_t _byteSize )
 {

@@ -18,4 +18,5 @@ target_sources(
 	${CMAKE_CURRENT_LIST_DIR}/RenderContext.cpp
 	${CMAKE_CURRENT_LIST_DIR}/ContextCreator.hpp
 	${CMAKE_CURRENT_LIST_DIR}/ContextCreator.cpp
+	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
 )

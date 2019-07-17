@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-namespace SequenceOfResponsibility
+namespace Behavioral::SequenceOfResponsibility
 {
 enum class ContextType
 {

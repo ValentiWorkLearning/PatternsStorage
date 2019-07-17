@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 void NearestNeighbour::interpolate( Image& _toProcess)
 {

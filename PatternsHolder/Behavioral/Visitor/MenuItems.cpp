@@ -3,8 +3,9 @@
 #include "MenuItemVisitor.hpp"
 #include "MenuItems.hpp"
 #include "Messages.hpp"
+#include "Exceptions.hpp"
 
-namespace Visitor::Filesystem::Nodes
+namespace Behavioral::Visitor::Filesystem::Nodes
 {
 size_t DirectoryNode::getEntrySize() const
 {
@@ -102,6 +103,9 @@ createFile( FileExtension _fileExtension, size_t _fileSize )
             return std::make_shared<BatFileNode>( _fileSize );
             break;
         default:
+            throw Exceptions::InvalidFileExtension(
+                Messages::InvalidFileExtension );
+            return nullptr;
             break;
     }
 }

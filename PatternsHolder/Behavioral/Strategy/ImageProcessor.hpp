@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <memory>
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 
 class Image;

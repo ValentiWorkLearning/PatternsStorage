@@ -16,4 +16,5 @@ target_sources(
         PRIVATE
 	${CMAKE_CURRENT_LIST_DIR}/CommandContextParser.hpp
 	${CMAKE_CURRENT_LIST_DIR}/CommandContextParser.cpp
+	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
 )

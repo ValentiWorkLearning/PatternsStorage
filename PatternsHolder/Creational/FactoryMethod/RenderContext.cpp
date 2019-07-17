@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace RenderTargets
+namespace Creational::Factory::RenderTargets
 {
 void OpenGlRenderTarget::renderContext()
 {

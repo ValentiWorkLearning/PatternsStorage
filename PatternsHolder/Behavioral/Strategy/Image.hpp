@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <random>
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 class Image
 {

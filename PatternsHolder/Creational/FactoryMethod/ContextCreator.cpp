@@ -2,7 +2,7 @@
 
 #include "RenderContext.hpp"
 
-namespace Creators
+namespace Creational::Factory::Creators
 {
 std::unique_ptr<RenderTargets::IRenderTarget>
 OpenGlCreator::createRenderContext()

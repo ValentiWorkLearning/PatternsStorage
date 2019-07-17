@@ -2,7 +2,7 @@
 
 #include <memory>
 
-namespace Visitor::Filesystem::Nodes
+namespace Behavioral::Visitor::Filesystem::Nodes
 {
 class DirectoryNode;
 
@@ -14,7 +14,7 @@ class BatFileNode;
 
 }  // namespace Visitor::Filesystem::Nodes
 
-namespace Visitor
+namespace Behavioral::Visitor
 {
 class NodeVisitor
 {

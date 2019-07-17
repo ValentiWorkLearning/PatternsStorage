@@ -4,7 +4,7 @@
 
 #include "MenuItems.hpp"
 
-namespace Visitor
+namespace Behavioral::Visitor
 {
 void PaintVisitor::visit( const Filesystem::Nodes::DirectoryNode& _dirNode )
 {

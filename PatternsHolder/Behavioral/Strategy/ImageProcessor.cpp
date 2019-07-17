@@ -3,7 +3,7 @@
 #include "ImageInterpolator.hpp"
 #include "Image.hpp"
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 void ImageProcessor::setImageInterpolationMode(
     std::unique_ptr<IImageInterpolator>&& _imageProcessor )

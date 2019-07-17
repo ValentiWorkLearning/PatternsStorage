@@ -21,4 +21,5 @@ target_sources(
 	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.hpp
 	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.cpp
 	${CMAKE_CURRENT_LIST_DIR}/Image.hpp
+	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
 )

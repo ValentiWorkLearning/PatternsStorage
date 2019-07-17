@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 
-namespace RenderTargets
+namespace Creational::Factory::RenderTargets
 {
 class IRenderTarget
 {

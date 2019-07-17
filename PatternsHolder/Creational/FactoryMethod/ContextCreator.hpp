@@ -2,14 +2,14 @@
 
 #include <memory>
 
-namespace RenderTargets
+namespace Creational::Factory::RenderTargets
 {
 class IRenderTarget;
 class OpenGlRenderTarget;
 class DirectXRenderTarget;
 }  // namespace RenderTargets
 
-namespace Creators
+namespace Creational::Factory::Creators
 {
 class IRenderContextCreator
 {

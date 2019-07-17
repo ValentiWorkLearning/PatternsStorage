@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace SequenceOfResponsibility
+namespace Behavioral::SequenceOfResponsibility
 {
 void RangeParser::parseContext( ContextType _jsonValueType )
 {

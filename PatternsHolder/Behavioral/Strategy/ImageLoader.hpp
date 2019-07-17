@@ -5,7 +5,7 @@
 #include <memory>
 #include "Image.hpp"
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 class IImageLoader
 {

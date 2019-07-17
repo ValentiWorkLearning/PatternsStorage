@@ -4,35 +4,13 @@
 #include <string>
 #include <vector>
 
-namespace Visitor
+namespace Behavioral::Visitor
 {
 class NodeVisitor;
 }
 
-namespace Visitor::Filesystem::Exceptions
-{
-class BadExtensionCall : public std::exception
-{
-   public:
-    explicit BadExtensionCall( char const* _message ) : m_warnMessage{_message}
-    {
-    }
 
-    explicit BadExtensionCall( const std::string& _message )
-        : m_warnMessage{_message}
-    {
-    }
-
-    ~BadExtensionCall() = default;
-
-    char const* what() { return m_warnMessage.c_str(); }
-
-   private:
-    std::string m_warnMessage;
-};
-};  // namespace Visitor::Filesystem::Exceptions
-
-namespace Visitor::Filesystem::Nodes
+namespace Behavioral::Visitor::Filesystem::Nodes
 {
 class NodesVisitor;
 
@@ -41,7 +19,7 @@ class IFilesystemNode
    public:
     using Ptr = std::shared_ptr<IFilesystemNode>;
 
-    virtual void accept( Visitor::NodeVisitor& _visitor ) = 0;
+    virtual void accept( Behavioral::Visitor::NodeVisitor& _visitor ) = 0;
 
     virtual size_t getEntrySize() const = 0;
 
@@ -64,7 +42,7 @@ class DirectoryNode : public IFilesystemNode
 
     void addEntry( const std::shared_ptr<IFilesystemNode>& _node );
 
-    void accept( Visitor::NodeVisitor& _visitor ) override;
+    void accept( Behavioral::Visitor::NodeVisitor& _visitor ) override;
 
    private:
     std::vector<std::shared_ptr<IFilesystemNode>> m_entries;
@@ -90,7 +68,7 @@ class CppFileNode : public IFileNode
 
     std::string getFileExtension() const override;
 
-    void accept( Visitor::NodeVisitor& _visitor ) override;
+    void accept( Behavioral::Visitor::NodeVisitor& _visitor ) override;
 
     ~CppFileNode() override = default;
 };
@@ -102,7 +80,7 @@ class PdfFileNode : public IFileNode
 
     std::string getFileExtension() const override;
 
-    void accept( Visitor::NodeVisitor& _visitor ) override;
+    void accept( Behavioral::Visitor::NodeVisitor& _visitor ) override;
 
     ~PdfFileNode() override = default;
 };
@@ -114,7 +92,7 @@ class BatFileNode : public IFileNode
 
     std::string getFileExtension() const override;
 
-    void accept( Visitor::NodeVisitor& _visitor ) override;
+    void accept( Behavioral::Visitor::NodeVisitor& _visitor ) override;
 
     ~BatFileNode() override = default;
 };

@@ -19,4 +19,6 @@ target_sources(
 	${CMAKE_CURRENT_LIST_DIR}/MenuItems.hpp
 	${CMAKE_CURRENT_LIST_DIR}/MenuItems.cpp
 	${CMAKE_CURRENT_LIST_DIR}/Literals.hpp
+	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
+	${CMAKE_CURRENT_LIST_DIR}/Exceptions.hpp
 )

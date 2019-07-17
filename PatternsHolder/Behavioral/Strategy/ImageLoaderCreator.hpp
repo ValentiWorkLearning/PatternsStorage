@@ -3,7 +3,7 @@
 #include<memory>
 #include "ImageLoader.hpp"
 
-namespace Strategy
+namespace Behavioral::Strategy
 {
 
 class IImageLoaderCreator
