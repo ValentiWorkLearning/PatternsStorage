@@ -8,4 +8,4 @@ const char* const BadExtensionCall =
 const char* const InvalidFileExtension =
     "Behavioral::Visitor::Filesystem::Nodes::createFile is called with "
     "incorrect file extension type";
-}
+}  // namespace Behavioral::Visitor::Filesystem::Messages

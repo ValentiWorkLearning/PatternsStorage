@@ -15,8 +15,7 @@ class Image
     size_t getDensity() const;
 
    private:
-
-	size_t getPixelDensityFromSource();
+    size_t getPixelDensityFromSource();
 
     size_t m_pixelDensity;
 
@@ -24,10 +23,9 @@ class Image
 };
 
 inline Image::Image( const std::filesystem::path& _imageSource )
-	:	m_imageSource{ _imageSource }
+    : m_imageSource{_imageSource}
 {
-
-	m_pixelDensity = getPixelDensityFromSource();
+    m_pixelDensity = getPixelDensityFromSource();
 }
 
 inline void Image::Image::setDensity( size_t _newDensity )
@@ -50,4 +48,4 @@ inline size_t Image::getPixelDensityFromSource()
     return distribution( generator );
 }
 
-};  // namespace Strategy
+};  // namespace Behavioral::Strategy

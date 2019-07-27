@@ -5,7 +5,6 @@
 
 namespace Behavioral::Strategy
 {
-
 class Image;
 class IImageInterpolator;
 
@@ -21,4 +20,4 @@ class ImageProcessor
     std::unique_ptr<IImageInterpolator> m_imageInterpolator;
 };
 
-};  // namespace Strategy
+};  // namespace Behavioral::Strategy

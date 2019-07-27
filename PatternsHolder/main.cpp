@@ -4,17 +4,18 @@
 #include "Behavioral/SequenceOfResponsibility/RunMinimalExample.hpp"
 #include "Behavioral/Strategy/RunMinimalExample.hpp"
 #include "Behavioral/Visitor/RunMinimalExample.hpp"
+#include "Behavioral//State/RunMinimalExample.hpp"
 
 #include "Creational/FactoryMethod/RunMinimalExample.hpp"
 
 int main()
 {
-
     Creational::Factory::runMinimalExample();
 
     Behavioral::SequenceOfResponsibility::runMinimalExample();
     Behavioral::Visitor::runMinimalExample();
     Behavioral::Strategy::runMinimalExample();
+    Behavioral::State::runMinimalExample();
 
     return 0;
 }

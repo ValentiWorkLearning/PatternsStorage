@@ -1,8 +1,7 @@
 #pragma once
 
-#include "Image.hpp"
-
 #include <memory>
+
 #include "Image.hpp"
 
 namespace Behavioral::Strategy
@@ -10,11 +9,10 @@ namespace Behavioral::Strategy
 class IImageLoader
 {
    public:
-
     virtual std::unique_ptr<Image>
     loadImageFromSource( const std::filesystem::path& _path ) = 0;
 
-	virtual ~IImageLoader() = default;
+    virtual ~IImageLoader() = default;
 };
 
 class FakeImageLoader : public IImageLoader
@@ -23,10 +21,11 @@ class FakeImageLoader : public IImageLoader
     std::unique_ptr<Image>
     loadImageFromSource( const std::filesystem::path& _path ) override;
 
-	~FakeImageLoader() = default;
+    ~FakeImageLoader() = default;
 
-	private:
-    static inline std::filesystem::path FakePath = "FakeDrive/FakeFolder/FakeImage.png";
+   private:
+    static inline std::filesystem::path FakePath =
+        "FakeDrive/FakeFolder/FakeImage.png";
 };
 
 class FilesystemImageLoader : public IImageLoader
@@ -35,11 +34,11 @@ class FilesystemImageLoader : public IImageLoader
     std::unique_ptr<Image>
     loadImageFromSource( const std::filesystem::path& _path ) override;
 
-	~FilesystemImageLoader() = default;
-
+    ~FilesystemImageLoader() = default;
 };
 
-std::unique_ptr<Image> FakeImageLoader::loadImageFromSource( const std::filesystem::path& _path )
+std::unique_ptr<Image>
+FakeImageLoader::loadImageFromSource( const std::filesystem::path& _path )
 {
     return std::make_unique<Image>( FakePath );
 }
@@ -50,4 +49,4 @@ FilesystemImageLoader::loadImageFromSource( const std::filesystem::path& _path )
     return std::make_unique<Image>( _path );
 }
 
-}  // namespace Straregy
+}  // namespace Behavioral::Strategy

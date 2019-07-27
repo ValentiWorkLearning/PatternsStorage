@@ -40,4 +40,4 @@ void MarginsParser::parseContext( ContextType _jsonValueType )
     else
         CompositeContentParser::parseContext( _jsonValueType );
 }
-}  // namespace SequenceOfResponsibility
+}  // namespace Behavioral::SequenceOfResponsibility

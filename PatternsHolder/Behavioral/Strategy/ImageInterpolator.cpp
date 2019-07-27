@@ -1,5 +1,6 @@
 #include "ImageInterpolator.hpp"
 #include "Image.hpp"
+#include <boost/numeric/conversion/cast.hpp>
 
 #include <iostream>
 
@@ -9,14 +10,14 @@ void NearestNeighbour::interpolate( Image& _toProcess)
 {
     std::cout << "Image is interpolated via nearest neighbour algorithm " << std::endl;
 
-    _toProcess.setDensity( _toProcess.getDensity() * 1.5 );
+    _toProcess.setDensity( boost::numeric_cast<size_t>( _toProcess.getDensity() * 1.5 ) );
 }
 void LinearInterpolation::interpolate( Image& _toProcess )
 {
     std::cout << "Image is interpolated via linerar interpolation algorithm "
               << std::endl;
 
-    _toProcess.setDensity( _toProcess.getDensity() * 2.5 );
+    _toProcess.setDensity( boost::numeric_cast<size_t>( _toProcess.getDensity() * 2.5 ) );
 }
 void BicubicInterpolation::interpolate( Image& _toProcess )
 {

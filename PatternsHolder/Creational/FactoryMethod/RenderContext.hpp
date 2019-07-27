@@ -34,4 +34,4 @@ class DirectXRenderTarget : public IRenderTarget
 
     ~DirectXRenderTarget() override = default;
 };
-};  // namespace RenderTargets
+};  // namespace Creational::Factory::RenderTargets

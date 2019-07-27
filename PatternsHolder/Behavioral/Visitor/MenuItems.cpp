@@ -1,9 +1,9 @@
 #include "MenuItems.hpp"
 
+#include "Exceptions.hpp"
 #include "MenuItemVisitor.hpp"
 #include "MenuItems.hpp"
 #include "Messages.hpp"
-#include "Exceptions.hpp"
 
 namespace Behavioral::Visitor::Filesystem::Nodes
 {
@@ -110,4 +110,4 @@ createFile( FileExtension _fileExtension, size_t _fileSize )
     }
 }
 
-}  // namespace Visitor::Filesystem::Nodes
+}  // namespace Behavioral::Visitor::Filesystem::Nodes

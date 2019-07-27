@@ -1,7 +1,8 @@
 #include "ImageProcessor.hpp"
-#include "ImageProcessor.hpp"
-#include "ImageInterpolator.hpp"
+
 #include "Image.hpp"
+#include "ImageInterpolator.hpp"
+#include "ImageProcessor.hpp"
 
 namespace Behavioral::Strategy
 {
@@ -19,4 +20,4 @@ ImageProcessor::processImage( std::unique_ptr<Image>&& _image )
 
     return toProcess;
 }
-};  // namespace Strategy
+};  // namespace Behavioral::Strategy

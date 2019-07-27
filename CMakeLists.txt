@@ -12,6 +12,7 @@ add_subdirectory ("PatternsHolder/Creational/FactoryMethod")
 add_subdirectory ("PatternsHolder/Behavioral/SequenceOfResponsibility")
 add_subdirectory ("PatternsHolder/Behavioral/Visitor")
 add_subdirectory ("PatternsHolder/Behavioral/Strategy")
+add_subdirectory ("PatternsHolder/Behavioral/State")
 
 set (TARGET_NAME PatternsHolder)
 
@@ -41,6 +42,7 @@ target_link_libraries(
 	SequenceOfResponsibility
 	Visitor
 	Strategy
+	State
 	${Boost_LIBRARIES}
 )
 

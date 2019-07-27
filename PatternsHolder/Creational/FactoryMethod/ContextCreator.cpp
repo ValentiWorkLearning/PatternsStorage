@@ -25,4 +25,4 @@ IRenderContextCreator::Ptr createDirectXCreator()
     return std::make_unique<DirectXCreator>();
 }
 
-}  // namespace Creators
+}  // namespace Creational::Factory::Creators

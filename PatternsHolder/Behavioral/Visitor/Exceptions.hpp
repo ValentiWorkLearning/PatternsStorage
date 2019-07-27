@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <exception>
+#include <string>
 
 namespace Behavioral::Visitor::Filesystem::Exceptions
 {

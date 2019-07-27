@@ -12,7 +12,7 @@ class PdfFileNode;
 
 class BatFileNode;
 
-}  // namespace Visitor::Filesystem::Nodes
+}  // namespace Behavioral::Visitor::Filesystem::Nodes
 
 namespace Behavioral::Visitor
 {
@@ -46,4 +46,4 @@ class PaintVisitor : public NodeVisitor
 
 std::unique_ptr<NodeVisitor> createPaintNodeVisitor();
 
-};  // namespace Visitor
+};  // namespace Behavioral::Visitor

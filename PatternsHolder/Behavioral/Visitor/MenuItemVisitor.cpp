@@ -35,4 +35,4 @@ std::unique_ptr<NodeVisitor> createPaintNodeVisitor()
     return std::make_unique<PaintVisitor>();
 }
 
-}  // namespace Visitor
+}  // namespace Behavioral::Visitor

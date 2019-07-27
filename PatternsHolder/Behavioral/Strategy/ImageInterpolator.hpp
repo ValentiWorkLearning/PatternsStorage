@@ -5,12 +5,11 @@
 
 namespace Behavioral::Strategy
 {
-
 enum class InterpolationMode
 {
-		NearestNeighbour
-	,	Linear
-	,	Bicubic
+    NearestNeighbour,
+    Linear,
+    Bicubic
 };
 
 constexpr const char* ExceptionMessage =
@@ -31,7 +30,7 @@ class NearestNeighbour : public IImageInterpolator
    public:
     void interpolate( Image& _toProcess ) override;
 
-	~NearestNeighbour()override = default;
+    ~NearestNeighbour() override = default;
 };
 
 class LinearInterpolation : public IImageInterpolator
@@ -39,7 +38,7 @@ class LinearInterpolation : public IImageInterpolator
    public:
     void interpolate( Image& _toProcess ) override;
 
-	~LinearInterpolation() override = default;
+    ~LinearInterpolation() override = default;
 };
 
 class BicubicInterpolation : public IImageInterpolator
@@ -47,10 +46,10 @@ class BicubicInterpolation : public IImageInterpolator
    public:
     void interpolate( Image& _toProcess ) override;
 
-	~BicubicInterpolation() override = default;
+    ~BicubicInterpolation() override = default;
 };
 
 std::unique_ptr<IImageInterpolator>
 getInterpolationAlgorithm( InterpolationMode _algorithm );
 
-}  // namespace Strategy
+}  // namespace Behavioral::Strategy

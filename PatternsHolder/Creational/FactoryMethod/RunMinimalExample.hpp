@@ -1,9 +1,9 @@
 #pragma once
 
+#include <iostream>
+
 #include "Creational/FactoryMethod/ContextCreator.hpp"
 #include "Creational/FactoryMethod/RenderContext.hpp"
-
-#include <iostream>
 
 namespace Creational::Factory
 {

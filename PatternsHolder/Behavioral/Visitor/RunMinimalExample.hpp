@@ -1,10 +1,10 @@
 #pragma once
 
+#include <iostream>
+
 #include "Literals.hpp"
 #include "MenuItemVisitor.hpp"
 #include "MenuItems.hpp"
-
-#include <iostream>
 
 namespace Behavioral::Visitor
 {
@@ -38,4 +38,4 @@ static void runMinimalExample()
 
     std::cout << "Behavioral/Visitor" << std::endl;
 }
-};  // namespace Visitor
+};  // namespace Behavioral::Visitor

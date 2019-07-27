@@ -24,4 +24,4 @@ void DirectXRenderTarget::renderContext()
     std::cout << "DirectX render context" << std::endl;
 }
 
-}  // namespace RenderTargets
+}  // namespace Creational::Factory::RenderTargets

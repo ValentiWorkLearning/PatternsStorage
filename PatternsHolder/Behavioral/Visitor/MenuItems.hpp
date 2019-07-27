@@ -9,7 +9,6 @@ namespace Behavioral::Visitor
 class NodeVisitor;
 }
 
-
 namespace Behavioral::Visitor::Filesystem::Nodes
 {
 class NodesVisitor;
@@ -109,4 +108,4 @@ DirectoryNode::Ptr createDirectory();
 IFilesystemNode::Ptr
 createFile( FileExtension _fileExtension, size_t _fileSize );
 
-};  // namespace Visitor::Filesystem::Nodes
+};  // namespace Behavioral::Visitor::Filesystem::Nodes

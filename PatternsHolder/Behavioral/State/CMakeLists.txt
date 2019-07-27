@@ -1,7 +1,8 @@
 cmake_minimum_required (VERSION 3.8)
 
 find_package(Boost 1.68 REQUIRED)
-set (TARGET_NAME Strategy)
+
+set (TARGET_NAME State)
 
 add_library( ${TARGET_NAME} STATIC )
 
@@ -21,12 +22,9 @@ target_include_directories(
 target_sources(
 	${TARGET_NAME}
         PRIVATE
-	${CMAKE_CURRENT_LIST_DIR}/ImageInterpolator.hpp
-	${CMAKE_CURRENT_LIST_DIR}/ImageInterpolator.cpp
-	${CMAKE_CURRENT_LIST_DIR}/ImageLoader.hpp
-	${CMAKE_CURRENT_LIST_DIR}/ImageLoaderCreator.hpp
-	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.hpp
-	${CMAKE_CURRENT_LIST_DIR}/ImageProcessor.cpp
-	${CMAKE_CURRENT_LIST_DIR}/Image.hpp
+	${CMAKE_CURRENT_LIST_DIR}/SmartTeapot.cpp
+	${CMAKE_CURRENT_LIST_DIR}/SmartTeapot.hpp
+	${CMAKE_CURRENT_LIST_DIR}/TeapotState.hpp
+	${CMAKE_CURRENT_LIST_DIR}/TeapotState.cpp
 	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
 )

@@ -7,7 +7,7 @@ namespace Creational::Factory::RenderTargets
 class IRenderTarget;
 class OpenGlRenderTarget;
 class DirectXRenderTarget;
-}  // namespace RenderTargets
+}  // namespace Creational::Factory::RenderTargets
 
 namespace Creational::Factory::Creators
 {
@@ -44,4 +44,4 @@ class DirectXCreator : public IRenderContextCreator
 
 [[nodiscard]] IRenderContextCreator::Ptr createDirectXCreator();
 
-};  // namespace Creators
+};  // namespace Creational::Factory::Creators

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+
 #include "CommandContextParser.hpp"
 
 namespace Behavioral::SequenceOfResponsibility
@@ -31,4 +32,4 @@ static void runMinimalExample()
     std::cout << "Behavioral/SequenceOfResponsibility" << std::endl;
 }
 
-};  // namespace SequenceOfResponsibility
+};  // namespace Behavioral::SequenceOfResponsibility
