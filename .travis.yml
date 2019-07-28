@@ -13,9 +13,13 @@ addons:
       - g++-7
       - boost1.68
 
+berfore_script:
+  - mkdir build
+  - cd build
+
 script:
   - export CC=gcc-7
   - export CXX=g++-7
   - cmake --version
-  - cmake CMakeLists.txt
+  - cmake ..
   - cmake  --build . 
