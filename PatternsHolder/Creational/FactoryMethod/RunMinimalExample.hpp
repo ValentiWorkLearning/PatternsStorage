@@ -22,6 +22,7 @@ static void runMinimalExample()
         auto renderTarget = directXContextCreator->createRenderContext();
 
         renderTarget->forceRedraw();
+        renderTarget->forceRedraw();
     }
     std::cout << "Creatioal/FactoryMethod" << std::endl;
 }
