@@ -1,7 +1,5 @@
 cmake_minimum_required (VERSION 3.8)
 
-find_package(Boost 1.68 REQUIRED)
-
 set (TARGET_NAME State)
 
 add_library( ${TARGET_NAME} STATIC )
@@ -27,4 +25,9 @@ target_sources(
 	${CMAKE_CURRENT_LIST_DIR}/TeapotState.hpp
 	${CMAKE_CURRENT_LIST_DIR}/TeapotState.cpp
 	${CMAKE_CURRENT_LIST_DIR}/RunMinimalExample.hpp
+)
+
+target_link_libraries(
+	${TARGET_NAME}
+	${Boost_LIBRARIES}
 )

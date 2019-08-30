@@ -3,6 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
 find_package(Boost 1.68 REQUIRED)
 project ("PatternsHolder")
@@ -14,7 +15,7 @@ add_subdirectory ("PatternsHolder/Behavioral/Visitor")
 add_subdirectory ("PatternsHolder/Behavioral/Strategy")
 add_subdirectory ("PatternsHolder/Behavioral/State")
 
-set (TARGET_NAME PatternsHolder)
+set (TARGET_NAME PatternsHolderBinary )
 
 add_executable( ${TARGET_NAME} )
 

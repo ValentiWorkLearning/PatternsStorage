@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-#include "Behavioral/Strategy/Image.hpp"
-#include "Behavioral/Strategy/ImageInterpolator.hpp"
-#include "Behavioral/Strategy/ImageLoader.hpp"
-#include "Behavioral/Strategy/ImageLoaderCreator.hpp"
-#include "Behavioral/Strategy/ImageProcessor.hpp"
+#include "Image.hpp"
+#include "ImageInterpolator.hpp"
+#include "ImageLoader.hpp"
+#include "ImageLoaderCreator.hpp"
+#include "ImageProcessor.hpp"
 
 namespace Behavioral::Strategy
 {
