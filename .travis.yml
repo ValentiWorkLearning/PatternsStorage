@@ -18,6 +18,22 @@ matrix:
       before_script:
         - export CC=gcc-8
         - export CXX=g++-8
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-6.0
+          packages:
+            - clang-6.0
+            - libstdc++6
+      env:
+        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang-6.0"
+        - LINKER_FLAGS="-stdlib=libc++ -lc++abi"
+      before_script:
+        - export CC=clang-6.0
+        - export CXX=clang++-6.0
+
 before_install:
     - eval "${MATRIX_EVAL}"
 
