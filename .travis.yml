@@ -12,30 +12,16 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-8
-      env:
-        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-        - LINKER_FLAGS=""
       before_script:
         - export CC=gcc-8
         - export CXX=g++-8
     - os: linux
+      name: "Xenial - clang 8"
+      env: [USE_CC='/usr/bin/clang-8', USE_CXX='/usr/bin/clang++-8']
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-6.0
-          packages:
-            - clang-6.0
-            - libstdc++6
-      env:
-        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang-6.0"
-        - LINKER_FLAGS="-stdlib=libc++ -lc++abi"
-      before_script:
-        - export CC=clang-6.0
-        - export CXX=clang++-6.0
-
-before_install:
-    - eval "${MATRIX_EVAL}"
+          packages: ['clang-8', 'cmake']
+          sources: ['llvm-toolchain-xenial-8']
 
 # from https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 # the install step will take care of deploying a newer cmake version
