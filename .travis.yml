@@ -5,27 +5,29 @@ python: "3.7"
 matrix:
   fast_finish: true
   include:
-    - os: linux
-      name: "Xenial - gcc 8"
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-8
-      before_script:
-        - export CC=gcc-8
-        - export CXX=g++-8
-    - os: linux
-      name: "Xenial - clang 8"
-      env: [USE_CC='/usr/bin/clang-8', USE_CXX='/usr/bin/clang++-8']
-      compiler: clang
-      addons:
-        apt:
-          packages:
-            - clang-8
-          sources:
-            - llvm-toolchain-xenial-8
+#    - os: linux
+#      name: "Xenial - gcc 8"
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#          packages:
+#            - g++-8
+#      before_script:
+#        - export CC=gcc-8
+#        - export CXX=g++-8
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-8.0
+        - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-8.0 main'
+          key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+        packages:
+        - clang-8.0
+        - libstdc++6
+    env: [USE_CC='/usr/bin/clang-8', USE_CXX='/usr/bin/clang++-8']
 
 # from https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 # the install step will take care of deploying a newer cmake version
