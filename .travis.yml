@@ -6,6 +6,7 @@ matrix:
   fast_finish: true
   include:
     - os: linux
+      name: "Xenial - gcc 8"
       addons:
         apt:
           sources:
@@ -18,6 +19,7 @@ matrix:
     - os: linux
       name: "Xenial - clang 8"
       env: [USE_CC='/usr/bin/clang-8', USE_CXX='/usr/bin/clang++-8']
+      compiler: clang
       addons:
         apt:
           packages: ['clang-8', 'cmake']
