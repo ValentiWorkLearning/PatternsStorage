@@ -16,18 +16,11 @@ matrix:
 #      before_script:
 #        - export CC=gcc-8
 #        - export CXX=g++-8
-    - os: linux
-      dist: precise
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-5.0
-          packages:
-            - clang-5.0
-      env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-      before_install:
-        - eval "${MATRIX_EVAL}"
+    - env: VER=7 STDFLAGS="-std=c++11 -std=c++14 -std=c++17" TESTS="mpark libc++"
+      compiler: clang
+      os: linux
+      addons: { apt: { packages: ["clang-7"],
+                       sources: ["llvm-toolchain-xenial-7"] } }
 # from https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 # the install step will take care of deploying a newer cmake version
 install:    
