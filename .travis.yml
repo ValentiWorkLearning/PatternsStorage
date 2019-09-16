@@ -2,38 +2,21 @@ language: python
 dist: xenial
 python: "3.7"
 
-os:
-    - linux
-    - osx
 matrix:
+  fast_finish: true
   include:
-    - addons:
+    - os: linux
+      addons:
         apt:
-          update: true
           sources:
             - ubuntu-toolchain-r-test
           packages:
             - g++-8
-          env:
-            - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-            - LINKER_FLAGS=""
-    - addons:
-        apt:
-            update: true
-            sources:
-              - ubuntu-toolchain-r-test
-              - llvm-toolchain-trusty-6.0
-              - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
-              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
-              packages:
-              - clang-6.0
-              - libstdc++6
-            env:
-              - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
-              - LINKER_FLAGS="-stdlib=libc++ -lc++abi"
-
+      env:
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+        - LINKER_FLAGS=""
 before_install:
-- eval "${MATRIX_EVAL}"
+    - eval "${MATRIX_EVAL}"
 
 # from https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 # the install step will take care of deploying a newer cmake version
