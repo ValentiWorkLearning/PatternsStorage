@@ -1,10 +1,10 @@
 language: python
-python: "3.7"
 dist: xenial
 
 
 matrix:
   include:
+   - python: "3.7"
    - os: linux
   addons:
     apt:
@@ -16,6 +16,7 @@ matrix:
   env:
     - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
     - LINKER_FLAGS=""
+    
   - os: linux
   addons:
     apt:
@@ -28,7 +29,7 @@ matrix:
         - clang-6.0
         - libstdc++6
     env:
-    - MATRIX_EVAL="CC=clang-6.0 && CXX=clang-6.0"
+    - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
     - LINKER_FLAGS="-stdlib=libc++ -lc++abi"
 
 before_install:
