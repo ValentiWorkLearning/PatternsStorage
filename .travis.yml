@@ -22,8 +22,10 @@ matrix:
       compiler: clang
       addons:
         apt:
-          packages: ['clang-8', 'cmake']
-          sources: ['llvm-toolchain-xenial-8']
+          packages:
+            - clang-8
+          sources:
+            - llvm-toolchain-xenial-8
 
 # from https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 # the install step will take care of deploying a newer cmake version
